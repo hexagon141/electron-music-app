@@ -1,10 +1,18 @@
 import React from 'react';
-import { Icon } from '../../../ui/atoms/icon';
+import { createStoreObject } from 'effector';
+import { createComponent } from 'effector-react';
+import { setCurrentTrack, fetchTrack } from '../model';
+import { Icon } from '../../../ui/atoms';
 
-export const Player = () => {
-  return (
-    <strong>
-      <Icon name="music" size={40}/>
-    </strong>
-  );
-};
+const setTrack = () => setCurrentTrack({ url: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg' });
+
+export const Player = createComponent(
+  createStoreObject({
+    isPending: fetchTrack.pending,
+  }),
+  (_, { isPending }) => (
+    <button onClick={setTrack}>
+      <Icon name="video" size={40}/>
+    </button>
+  ),
+);
