@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/electron-entry.js",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "effector": "^20.1.0",
     "effector-react": "^20.2.0",
     "electron": "^5.0.8",
